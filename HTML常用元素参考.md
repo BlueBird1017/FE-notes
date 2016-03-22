@@ -83,14 +83,14 @@ script			|script元素用于在HTML或XHTML文档中嵌入一个或引用可执�
 
 元素(Element)|描述(Description)
 ------------ | -------------
-caption		|
-table			|
-tbody			|
-td				|
-tfoot			|
-th				|
-thead			|
-tr				|
+caption		|caption元素用于表示一个表格的标题。
+table			|table元素用于展示表格数据，信息通过二维或更多维度呈现。
+thead			|thead元素定义一组用于定义表格标题／头部的行。
+tbody			|tbody元素定义一个或多个tr元素数据行作为其父元素table的body部分。和thead或tfoot元素一样，它同时还为设备(如打印机、显示器)提供更多的语义信息。
+tfoot			|tfoot元素定义一组用于总结表格的行。
+tr				|tr元素定义表中的单元格行。
+th				|th元素定义一个单元格为某一组表格的头文件。
+td				|td元素定义包含数据的表格，即用于存放数据。
 ###表单元素 Forms
 
 
