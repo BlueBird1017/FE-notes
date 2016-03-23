@@ -93,6 +93,15 @@ th				|th元素定义一个单元格为某一组表格的头文件。
 td				|td元素定义包含数据的表格，即用于存放数据。
 ###表单元素 Forms
 
+元素(Element)|描述(Description)
+------------ | -------------
+button			|button元素展示一个可点击的按钮。
+form			|form元素展示一个文档部分，其包含用于向web服务器提交信息的交互控制。
+input			|input元素用于为web上的表单创造交互控制，从而获取来自用户的信息。
+label			|label元素用于展示用户界面中的一个项目的标题。
+option			|option元素用于在web表单中创建一个控制选项。
+output			|output元素用于反馈一个计算的结果或相应用户的一个请求。
+select			|select元素一个展示菜单选项的控制项目。
 
 
 
