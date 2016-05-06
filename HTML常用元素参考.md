@@ -1,18 +1,18 @@
-#HTML常用元素参考
-#前言
+# HTML常用元素参考
+# 前言
 评价一个HTML文档优劣很重要的一点就是**语义化(Semantic)**，而对HTML元素的理解将很大程度决定一位程序员能否很好地将HTML文档语义化。
 
 本文仅列出大部分常用常见元素，如有疑义或想了解所有元素还请参考英文原文。本文选译自：https://developer.mozilla.org/en-US/docs/Web/HTML/Element
 
 以下列表给出HTML的元素，并按照元素功能分类。虽然本文是写给刚接触HTML的人，但还是希望对它每个人都是有用的。
-###基本元素 Basic element
-基本元素是任何HTML文档的支柱。你可以在所有的网页中找到这些元素。沿着doctype
+### 基本元素 Basic element
+基本元素是任何HTML文档的支柱。你可以在所有的网页中找到这些元素。
 
 元素(Element)|描述(Description)
 ------------ | -------------
 html         | html元素相当于HTML文档的根,其它所有元素都是其后代／子代（即子元素）。
 
-###文档元数据元素 Document metadata
+### 文档元数据元素 Document metadata
 元数据包含页面的信息，如style、scripts、data等。style和scripts可以在(当前)页面中直接定义或链接到另一个(如css、js)文件。
 
 元素(Element) | 描述(Description)
@@ -22,7 +22,7 @@ link			|link元素具体说明当前文档和其它资源之间的关系，常�
 mata			|mata元素用于呈现其它元相关元素(base,link,script,style,title)无法呈现的元数据信息。
 style			|style元素包含整个文档或部分文档的样式信息，其内部内容也就是CSS。
 title			|title元素用于定义网页的标题，标题内容将被展示在浏览器的标题栏处。
-###内容部分相关元素 Content sectioning
+### 内容部分相关元素 Content sectioning
 这些元素使你可以更有逻辑地组织页面内容。
 
 元素(Element)|描述(Description)
@@ -34,7 +34,7 @@ header			|header元素用于表示介绍或助航。可能包含一些标题元�
 h1,h2,h3,h4,h5,h6|heading元素包含六个不同级别的文档标题，从h1到h6重要性递减。heading用于简单的描述介绍一个部分的主题.
 nav				|nav元素即navigation元素表示一个页面中与其它页面或当前页面中的其它部分的导航链接部分。
 section		|section元素用于将文档的内容区域化。
-###文本内容相关元素 Text content
+### 文本内容相关元素 Text content
 使用和文本内容相关的HTML元素以块或段的形式来组织body元素内的内容。
 
 元素(Element)|描述(Description)
@@ -46,7 +46,7 @@ ul				|ul元素用于呈现一个无序列表。
 li				|li元素用于呈现列表中的列表项目。它必须被包含在某一父元素中如一个有序列表(ol)、一个无序列表(ul)或是一个菜单(menu)。在菜单和无序列表中，列表项使用炫目符号显示；在有序列表中，它们的左边通常显示一个递增的计数器，例如数字或字母递增。
 p				|p元素用于呈现一个段落的文本。
 pre				|pre元素代表预格式化文本，在该元素的文本通常是显示为等宽字体。其中的空格被原样输出。
-###内联文本语义相关元素 Inline text semantics
+### 内联文本语义相关元素 Inline text semantics
 使用HTML的内联文本语义元素来定义一个字、词、行或任意块文本的含义和结构。
 
 元素(Element)|描述(Description)
@@ -64,7 +64,7 @@ strong			|strong元素用于展示强重要性的文本，以粗体展示。
 sub				|sub元素用于表示上标，字号小于默认字体。
 sup				|sup元素用于表示下标，字号小于默认字体。
 u				|u元素用于在文本内容下添加下划线。
-###图像和多媒体元素 Image and multimedia
+### 图像和多媒体元素 Image and multimedia
 HTML支持多样的多媒体资源例如图片、音频和视频。
 
 元素(Element)|描述(Description)
@@ -72,26 +72,26 @@ HTML支持多样的多媒体资源例如图片、音频和视频。
 audio			|audio元素用于在文档中嵌入音频。可以是一个或多个音频资源，通过src属性或source元素表示。浏览器自动会选择最合适的一个。
 video			|video元素用于在文档中嵌入视频。用法同audio。
 track			|track元素是媒体元素audio和video的子元素。通过它可以指定文本的时间轨道，例如自动处理字幕。
-###脚本元素 Scripting
+### 脚本元素 Scripting
 为了创造一些动态内容和网页应用，HTML支持使用脚本语言，如最重要的JavaScript。某些元素具有这一能力。
 
 元素(Element)|描述(Description)
 ------------ | -------------
 canvas			|canvas元素可以通过脚本（通常是JavaScript）绘图。例如可以画图表，组合图片，或是执行动画。你可以（且应该）在canvas的块中提供替换内容，这些内容可以在不支持canvas或JavaScript的浏览器中被显示。
 script			|script元素用于在HTML或XHTML文档中嵌入一个或引用可执行的脚本。
-###表格内容相关元素 Table content
+### 表格内容相关元素 Table content
 
 元素(Element)|描述(Description)
 ------------ | -------------
 caption		|caption元素用于表示一个表格的标题。
 table			|table元素用于展示表格数据，信息通过二维或更多维度呈现。
 thead			|thead元素定义一组用于定义表格标题／头部的行。
-tbody			|tbody元素定义一个或多个tr元素数据行作为其父元素table的body部分。和thead或tfoot元素一样，它同时还为设备(如打印机、显示器)提供更多的语义信息。
+tbody			|tbody元素定义一个或多个tr元素数据行作为其父元素table的body部分。和thead或tfoot元素一样，它同时还为设备(如打印机、显示器)提供更多的语义信息。（当表格被tbody标签包含时，该表格会等全部内容加载完才会显示。）
 tfoot			|tfoot元素定义一组用于总结表格的行。
 tr				|tr元素定义表中的单元格行。
-th				|th元素定义一个单元格为某一组表格的头文件。
-td				|td元素定义包含数据的表格，即用于存放数据。
-###表单元素 Forms
+th				|th元素定义一个单元格为某一组表格的头文件，即表格表头。
+td				|td元素定义包含数据的表格，用于存放数据。即表格中的单元格，一行中包含几对td标签，则该行有几列。
+### 表单元素 Forms
 
 元素(Element)|描述(Description)
 ------------ | -------------
