@@ -103,9 +103,40 @@ ease-in-out  |缓慢开始，缓慢结束（和ease稍有区别）
 
 浏览器本身就是一个2D平面，我们需要增加一个维度（深度）使其成为一个3D空间。
 
+设置3D场景：
 
+	-webkit-perspective:800;
+	-webkit-perspective-origin:50% 50%;
+	
+![](CSS3-3D1.png)
 
+假设左侧视窗为浏览器，也就是看到三维世界的窗口，那么通过浏览器我们就能看到三维物体，那么这个物体到窗口的距离就是perspective表达的意思（在上例中就是800px的距离）；那么人通过窗口观察就存在一个视点的问题，这个视点就是perspective-origin所表达的问题，这里的两个属性值就对应x、y轴的相对位置（上例中50% 50%就对应浏览器的中央）。
 
+此时浏览器里的物体虽然已经变成三维，但如果没有设置相应属性，和二维效果还是没有区别。所以我们需要使用新属性对元素进行调整。
+
+* 使用transform属性调整元素
+	- translate（位移）
+		- translateX（x px）
+		- translateY（y px）
+		- translateZ（z px）
+	- rotate（旋转）
+		- rotateX（x deg）
+		- rotateY（y deg）
+		- rotateZ（z deg）
+
+事实上对于transform属性也适用于2D场景，所以为了让浏览器知道我们在三维场景里调整，我们需要增加一条属性。
+
+```-webkit-transform-style:-webkit-preserve-ed;```
+
+![](CSS3-3D2.png)
+
+这里的x和y构成屏幕坐标系，x正方向为右，y正方向为下；在三维坐标系中多出了一个z轴，其方向就是从屏幕指向我们。
+
+为了更直观地理解三维场景的效果，请欣赏以下demo：
+
+rotate demo：[]()
+
+translate demo:[]()
 
 
 
