@@ -138,5 +138,24 @@ rotate demo：[]()
 
 translate demo:[]()
 
+* 使用transform-origin属性调整旋转中心（默认中心为物体中心）
+* x 轴
+	- left
+	- center
+	- right
+* y 轴
+	- top
+	- center
+	- bottom
+* z 轴
+	- length px
 
+### 实践完成一个3D图片翻转
 
+要求：
+
+[默认效果demo]():
+
+[翻书效果demo]():
+
+[翻日历效果demo]():
