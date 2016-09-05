@@ -1,0 +1,193 @@
+# You don't know Console
+本文参照：https://segmentfault.com/a/1190000006721606
+## 通常用法
+- 打印字符串：console.log("message");
+- 打印提示消息：console.info("info");
+- 打印警告消息：console.warn("warn");
+- 打印错误消息：console.error("error");
+- 打印调试信息：console.debug("debug");
+
+## 高级用法
+
+### 查看所有方法
+`console`除了上面的几个最常见的方法之外还有什么方法呢？`log`除了能打印字符串外，还能打印对象，我们可以利用`console.log`打印自己。
+
+在Console输入：
+
+    console.log(console);
+
+输出：
+
+![Console.log(console)](http://o6fy6cx7i.bkt.clouddn.com/Console.log%28console%29.png)
+
+于是我们可以看到有这么多的`console`方法，但这不等于每个浏览器都能实现。所以说，这个特性是非标准的，请尽量不要在`生产环境`中使用它。
+
+但是我们可以在`开发环境`中，`合理的利用`这些方法来帮助我们开发。
+
+### 清理控制台
+
+当我们在控制台调试时，有时候会需要清理控制台中的内容。浏览器和命令行`clear`一样，提供了一个清理函数`console.claer()`。
+
+    console.clear()
+
+当然我们也可以用`chrome`的`command line api`来清理控制台。
+
+    clear()
+
+又或者可以使用按键：Mac上的`cmd+k`，Win上的`ctrl+l`（我使用的是chrome浏览器）。
+
+### 分组
+
+当代码非常长，或者我们需要把一个函数，或者一个文件中的函数等区分出来。我们可以使用分组来实现。
+
+在Console输入：
+
+    console.group("group1");
+    console.log("aaa");
+    console.log("bbb");
+    console.groupEnd();
+    
+    console .group("group2");
+    console.log("ccc");
+    console.log("ddd");
+    console.groupEnd();
+
+输出：
+
+![console.group()](http://o6fy6cx7i.bkt.clouddn.com/console.group%28%29.png)
+
+如果希望输出信息为折叠的，可以使用`console.groupCollapsed`，用法同`console.group`。
+
+### 查看对象信息
+
+有时候我们需要打印出对象信心，可以使用`console.log`来进行简单的输出。
+
+在Console输入：
+
+    var Obj = {
+        proprety1: value1,
+        property2: value2,
+        property3: value3
+    };
+    console.log(Obj);
+
+于是你会发现这个输出信息并不利于我们观察，于是我们可以使用`console.table`来帮助我们清楚的显示`关联数组信息`。
+
+    var data = [
+        {
+            "proprety1": "value1",
+            "property2": "value2"
+        },
+        {
+            "proprety1": "value3",
+            "property2": "value4"
+        }
+    ];
+    console.table(data);
+
+输出：
+
+![console.table()](http://o6fy6cx7i.bkt.clouddn.com/console.table%28%29.png)
+
+但是如果想要看到详细的对象信息，我们可以使用`console.dir`，将一个`JavaScript`对象的所有属性和属性值显示成一个可交互的列表，它还能打印出函数等。
+
+    console.dir(clear);
+
+如果你想要查看某个节点中的HTML代码，可以用`console.dirxml`来查看页面中对应元素的`html/xml`内容。
+
+HTML代码：
+
+    <div id="flag">
+        <p>message</p>
+    </div>
+
+JavaScript代码：
+
+    var flag = document.getElementById("flag");
+    console.dirxml(flag);
+
+### 性能测试
+
+有时候当我们完成了一段代码我们想要知道这段代码的性能如何。这是我们可以使用`console.time`和`console.timeEnd`，他们可以记录代码运行所花费的时间。
+
+    console.time("test");
+    (function () {
+        for(var i = 0; i < 10; i++) {
+            var sum = (function () {
+                var flog = 0;
+                for(var i = 0; i < 10; i++) {
+                    flog+=i;
+                }
+            })();
+        }
+    })();
+    console.timeEnd("test");
+
+所以这个`性能测试`的本质就是个`计时器`,无独有偶，还有一对叫做`console.profile`和`console.profileEnd`。
+
+    console.profile("test");
+    (function () {
+        for(var i = 0; i < 10; i++) {
+            var sum = (function () {
+                var flog = 0;
+                for(var i = 0; i < 10; i++) {
+                    flog+=i;
+                }
+            })();
+        }
+    })();
+    console.profileEnd("test");
+
+其输出结果会显示在`profile`中。
+
+此外，如果还想要知道运行时的结果栈，可以使用`console.trace`。
+
+在Console输入：
+
+    function add(num) {
+        if (0 < num) {
+            console.trace("现在num的值为", num);
+            return num + add(num - 1);
+        } else {
+            return 0;
+        }
+    }
+    
+    var a =3;
+    add(3);
+
+输出：
+
+![](https://segmentfault.com/img/bVCmKS)
+
+### 判断真假
+
+平时我们在写代码时经常需要判断一下当前值的真假情况，使用if或者三元表达式来达到目的。我们现在也可以使用`console.assert`来判断，该方法会在条件错误时，返回一个`console.error`的结果。
+
+    console.assert(1 == 1);
+    console.assert(1 == 0);
+    console.assert(!(1 == 0));
+
+### 统计次数
+
+有时候我们需要统计一个函数被调用了几次，我们通常会增加一个变量`count`来记录，然后在控制台中查看。这样相当的麻烦，我们可以使用`console.count`函数来帮忙我们记录次数，并输出。
+
+    function hi(name) {
+    console.count(name);
+    return "hi " + name;
+    }   
+    
+    for(var i = 0; i < 10; i++) {
+        if(i < 4) {
+            hi("person");
+        } else {
+            hi("god");
+        }
+    }
+
+## 总结
+
+`console`中有很多对我们调试代码有帮助的函数，在`开发环境`中使用`console`来调试代码，可以让我们的测试更加便利。
+
+
+
