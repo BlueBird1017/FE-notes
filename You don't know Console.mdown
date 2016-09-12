@@ -254,6 +254,19 @@ monitor(function)，它接收一个函数名作为参数，比如function a，�
 ### debug & undebug
 debug同样也是接收一个函数名作为参数。当该函数执行时自动断下来以供调试，类似于在该函数的入口处打了个断点，可以通过debugger来做到，同时也可以通过在Chrome开发者工具里找到相应源码然后手动打断点。而undebug则是接触该断点。
 
+### 一个酷炫的黑魔法
+console.log家族还提供了一个API：第一个参数可以带一些格式化命令，比如%c,\n;
+
+    console.log('%chello world', 'background-image:-webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );color:transparent;-webkit-background-clip: text;font-size:5em;');
+
+![console.log第一个参数带格式化命令](http://www.html5cn.org/data/attachment/portal/201609/12/121556nqrrrrrfaorfrots.png)
+
+当然图片也是可以的，大家可以自行尝试，修改上述代码即可。
+
+另外，console.log()接收不定参数，参数间用逗号分隔，最终输出会将它们以空白字符连接。
+
+![console.log接收不定参数](http://www.html5cn.org/data/attachment/portal/201609/12/121556p14hlzmsy8wolh2h.png)
+
 ## 总结
 `console`中有很多对我们调试代码有帮助的函数，在`开发环境`中使用`console`来调试代码，可以让我们的测试更加便利。
 
